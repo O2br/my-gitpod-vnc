@@ -1,8 +1,13 @@
 FROM gitpod/workspace-full-vnc
 
-COPY bullseye-backports.list /etc/apt/sources.list.d/bullseye-backports.list
+
 
 USER root
+
+RUN  add-apt-repository --yes ppa:kicad/kicad-6.0-releases
+RUN  apt update \
+     && apt install --install-recommends kicad
+
 
 # Install dependencies
 RUN apt-get update                                             \
