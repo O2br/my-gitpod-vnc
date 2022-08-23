@@ -5,14 +5,15 @@ FROM gitpod/workspace-full-vnc
 USER root
 
 RUN  add-apt-repository --yes ppa:kicad/kicad-6.0-releases
-RUN  apt update \
-     && apt install --install-recommends kicad -y
+RUN  apt-get  update \
+     && apt-get install --install-recommends kicad -y \
+     && apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
 
 
 # Install dependencies
-RUN apt-get update                                             \
-    && apt-get install -y libgtk-3-dev firefox                 \
-    && apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
+# RUN apt-get update                                             \
+#     && apt-get install -y libgtk-3-dev firefox                 \
+#     && apt-get clean && rm -rf /var/cache/apt/* && rm -rf /var/lib/apt/lists/* && rm -rf /tmp/*
 
 
 USER gitpod
