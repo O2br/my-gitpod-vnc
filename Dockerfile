@@ -6,7 +6,7 @@ USER root
 
 RUN  add-apt-repository --yes ppa:kicad/kicad-6.0-releases
 RUN  apt update \
-     && apt install --install-recommends kicad
+     && apt install --install-recommends kicad -y
 
 
 # Install dependencies
